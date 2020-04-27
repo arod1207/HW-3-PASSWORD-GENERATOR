@@ -21,57 +21,34 @@ var numbers = ["1","2","3","4","5","6","7","8","9","0"];
 var specialChar = ["!","@","#","$","%","^","&","*","(",")","-","+","_","="];
 
 
-userLength = prompt("Enter length of password to generate!");
-userLength = parseInt(userLength);
-userUpperCase = confirm("Do you want it to containt UPPERCASE letters?");
-userLowerCase = confirm("Do you want it to contain lowercase letters?");
-userNumbers = confirm("Do you want it to contain Numbers?");
-userSpecialChar = confirm("Do you want it to contain special characters?");
-generatedPassword = " ";
+var userLength = prompt("Enter length of password to generate!");
+var userLength = parseInt(userLength);
+var userUpperCase = confirm("Do you want it to containt UPPERCASE letters?");
+var userLowerCase = confirm("Do you want it to contain lowercase letters?");
+var userNumbers = confirm("Do you want it to contain Numbers?");
+var userSpecialChar = confirm("Do you want it to contain special characters?");
+var generatedPassword = " ";
 
 
 console.log(typeof userLength, userLowerCase, userNumbers, userSpecialChar, userUpperCase);
 
-// if (userLength < 8 && userLength > 128){
-//   alert("Must be between 8 and 128 characters!");
-// }
-// else {
-//   alert("Must be between 8")
-// }
-
-
-
-function writePassword(){
-
-  // generatedPassword = " ";
-   for (var i = 0; i < userLength; i++)
-
-   if (userUpperCase === true){
-      generatedPassword += upperCase[Math.floor(Math.random() * upperCase.length)];
+ function passwordTest() {
+   for (var i = 0; i < userLength; i++) {
+     if (userUpperCase === true) {
+       return generatedPassword += upperCase[Math.floor(Math.random() * upperCase.length)];
+     }
    }
-    if (userLowerCase === true){
-      generatedPassword += lowerCase[Math.floor(Math.random() * lowerCase.length)];
-    }
-     if (userNumbers === true){
-      generatedPassword += numbers[Math.floor(Math.random() * numbers.length)];
-    }
-     if (userSpecialChar === true){
-      generatedPassword += specialChar[Math.floor(Math.random() * specialChar.length)];
-    } 
-    else {
-      alert("Invalid")
-    }
-
-    
-alert(generatedPassword);
-}
+ }
 
 
-console.log(generatedPassword)
+passwordTest();
 
-pass();
+
 
 var randomUpperCase = upperCase[Math.floor(Math.random() * upperCase.length)];
+
 var randomLoserCase = lowerCase[Math.floor(Math.random() * lowerCase.length)];
 var randomNumber = numbers[Math.floor(Math.random() * numbers.length)];
 var randomCharacteres = specialChar[Math.floor(Math.random() * specialChar.length)];
+
+

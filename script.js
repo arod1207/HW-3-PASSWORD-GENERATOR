@@ -32,38 +32,42 @@ generatedPassword = " ";
 
 console.log(typeof userLength, userLowerCase, userNumbers, userSpecialChar, userUpperCase);
 
-if (userLength < 8 && userLength > 128){
-  alert("Must be between 8 and 128 characters!");
-}
-else {
-  alert("Must be between 8")
-}
+// if (userLength < 8 && userLength > 128){
+//   alert("Must be between 8 and 128 characters!");
+// }
+// else {
+//   alert("Must be between 8")
+// }
 
 
 
-function pass(){
+function writePassword(){
 
-  generatedPassword = " ";
-
-    for (var i = 0; i < userLength; i++)
+  // generatedPassword = " ";
+   for (var i = 0; i < userLength; i++)
 
    if (userUpperCase === true){
-      for (var i = randomUpperCase[0]; i <= randomUpperCase[1]; i++)
       generatedPassword += upperCase[Math.floor(Math.random() * upperCase.length)];
    }
-   if (userLowerCase === true){
-      for (var i = randomLowerCase[0]; i <= randomLowerCase[1]; i++)
+    if (userLowerCase === true){
       generatedPassword += lowerCase[Math.floor(Math.random() * lowerCase.length)];
     }
-    if (userNumbers === true){
+     if (userNumbers === true){
       generatedPassword += numbers[Math.floor(Math.random() * numbers.length)];
     }
-    if (userSpecialChar === true){
+     if (userSpecialChar === true){
       generatedPassword += specialChar[Math.floor(Math.random() * specialChar.length)];
     } 
+    else {
+      alert("Invalid")
+    }
+
+    
 alert(generatedPassword);
 }
 
+
+console.log(generatedPassword)
 
 pass();
 

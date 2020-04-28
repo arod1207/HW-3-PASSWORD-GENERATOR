@@ -20,6 +20,7 @@ var lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p"
 var numbers = ["1","2","3","4","5","6","7","8","9","0"];
 var specialChar = ["!","@","#","$","%","^","&","*","(",")","-","+","_","="];
 var myArray = [];
+var passwordTest = '';
 
 
 // gathering information from user
@@ -30,27 +31,44 @@ var selectedNumbers = confirm("Do you want it to contain Numbers?");
 var selectedSpecialChar = confirm("Do you want it to contain special characters?");
 
 
-//checking what the typeof object
-console.log(typeof selectedLength, selectedLowerCase, selectedNumbers, selectedSpecialChar, selectedUpperCase);
 
+// Password must be between 8 and 128 characters
 
+      if (selectedLength < 8) {
+        alert("Password must be at least 8 characters");
+        
+      }
+     else if (selectedLength > 128) {
+        alert("Password must be less than 128 characters");
+        return;
+      }
 
+      
 
+// If true do this
 
       if (selectedUpperCase === true) {
-        myArray.push(upperCase)
+        myArray.push(upperCase);
       }
       if (selectedLowerCase === true) {
-        myArray.push(lowerCase)
+        myArray.push(lowerCase);
       }
       if (selectedNumbers === true) {
-        myArray.push(numbers)
+        myArray.push(numbers);
       }
       if (selectedSpecialChar === true) {
-        myArray.push(specialChar)
+        myArray.push(specialChar);
       }
+      
 
+    for (var i = 0; i < selectedLength; i ++) {
 
+      var arrayToUse = myArray[Math.floor(Math.random()*myArray.length)];
+      var randomCharIndex = Math.floor(Math.random()*arrayToUse.length);
+     
+      passwordTest += arrayToUse[randomCharIndex];
+    }
+      
 
    
 

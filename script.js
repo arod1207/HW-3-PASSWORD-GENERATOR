@@ -4,6 +4,7 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
+//running a check to see if user selected password is valid before running
   if (password !== false){
     var passwordText = document.querySelector("#password");
 
@@ -23,11 +24,14 @@ var specialChar = ["!","@","#","$","%","^","&","*","(",")","-","+","_","="];
 var maxCharLength = 128;
 var minCharLength = 8;
 var myArray = [];
-var randPassword = '';
 
 
 //creating a function and running it on button click
 function generatePassword() {
+
+//Where password will be stored
+  var randPassword = '';
+
 
  // using parseInt to turn the string into a number 
   var selectedLength = parseInt(prompt("Enter length of password to generate!"));
@@ -67,7 +71,7 @@ function generatePassword() {
     var arrayToUse = myArray[Math.floor(Math.random()*myArray.length)];
 // turning the randomized array into a string
     var randomCharIndex = Math.floor(Math.random()*arrayToUse.length);
-// selecting a random character and concatenating them into variable randPassword   
+// selecting a random character index and concatenating them into variable randPassword   
     randPassword += arrayToUse[randomCharIndex];
 
   }

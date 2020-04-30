@@ -6,7 +6,7 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+  passwordText.value = randPassword;
 
 }
 
@@ -19,6 +19,8 @@ var upperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P"
 var lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var numbers = ["1","2","3","4","5","6","7","8","9","0"];
 var specialChar = ["!","@","#","$","%","^","&","*","(",")","-","+","_","="];
+var maxCharLength = 128;
+var minCharLength = 8;
 var myArray = [];
 var randPassword = '';
 
@@ -30,10 +32,19 @@ var selectedLowerCase = confirm("Do you want it to contain lowercase letters?");
 var selectedNumbers = confirm("Do you want it to contain Numbers?");
 var selectedSpecialChar = confirm("Do you want it to contain special characters?");
 
+
+    function generatePassword() {
+    
+    if (selectedLength < minCharLength){
+      alert("Need's to be at least 8 Characters");
       
-
-// If true do this
-
+    }
+    else if(selectedLength > maxCharLength){
+      alert("Need's to be less than 128 Characters");
+    }
+  
+    else {
+    
       if (selectedUpperCase === true) {
         myArray.push(upperCase);
       }
@@ -46,18 +57,24 @@ var selectedSpecialChar = confirm("Do you want it to contain special characters?
       if (selectedSpecialChar === true) {
         myArray.push(specialChar);
       }
-      
-
+    
+    }
+    
     for (var i = 0; i < selectedLength; i ++) {
 
       var arrayToUse = myArray[Math.floor(Math.random()*myArray.length)];
       var randomCharIndex = Math.floor(Math.random()*arrayToUse.length);
      
       randPassword += arrayToUse[randomCharIndex];
+
     }
 
-alert(randPassword);
-
+      return randPassword;
+    
+  }
+    
+   
+   
 
       
 

@@ -4,10 +4,11 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  if (password !== false){
+    var passwordText = document.querySelector("#password");
 
-  passwordText.value = randPassword;
-
+  passwordText.value = password;
+  }
 }
 
 // Add event listener to generate button
@@ -25,53 +26,59 @@ var myArray = [];
 var randPassword = '';
 
 
-// gathering information from user
-var selectedLength = Number(prompt("Enter length of password to generate!"));
-var selectedUpperCase = confirm("Do you want it to containt UPPERCASE letters?");
-var selectedLowerCase = confirm("Do you want it to contain lowercase letters?");
-var selectedNumbers = confirm("Do you want it to contain Numbers?");
-var selectedSpecialChar = confirm("Do you want it to contain special characters?");
 
+function generatePassword() {
 
-    function generatePassword() {
-    
-    if (selectedLength < minCharLength){
-      alert("Need's to be at least 8 Characters");
-      
-    }
-    else if(selectedLength > maxCharLength){
-      alert("Need's to be less than 128 Characters");
-    }
   
-    else {
-    
-      if (selectedUpperCase === true) {
-        myArray.push(upperCase);
-      }
-      if (selectedLowerCase === true) {
-        myArray.push(lowerCase);
-      }
-      if (selectedNumbers === true) {
-        myArray.push(numbers);
-      }
-      if (selectedSpecialChar === true) {
-        myArray.push(specialChar);
-      }
-    
-    }
-    
-    for (var i = 0; i < selectedLength; i ++) {
+  var selectedLength = parseInt(prompt("Enter length of password to generate!"));
 
-      var arrayToUse = myArray[Math.floor(Math.random()*myArray.length)];
-      var randomCharIndex = Math.floor(Math.random()*arrayToUse.length);
-     
-      randPassword += arrayToUse[randomCharIndex];
+  if (selectedLength === null || isNaN(selectedLength)) {
+    alert("This isn't a number, please enter a number");
+    return false;
+  }
 
-    }
-
-      return randPassword;
+  
+  if (selectedLength < minCharLength || selectedLength > maxCharLength){
+    alert("Need's to be at least 8 Characters or less than or equal to 128 Characters");
+    return false;
     
   }
+
+
+  var selectedUpperCase = confirm("Do you want it to containt UPPERCASE letters?");
+  var selectedLowerCase = confirm("Do you want it to contain lowercase letters?");
+  var selectedNumbers = confirm("Do you want it to contain Numbers?");
+  var selectedSpecialChar = confirm("Do you want it to contain special characters?");
+      
+ 
+    
+
+  if (selectedUpperCase === true) {
+    myArray.push(upperCase);
+  }
+  if (selectedLowerCase === true) {
+    myArray.push(lowerCase);
+  }
+  if (selectedNumbers === true) {
+    myArray.push(numbers);
+  }
+  if (selectedSpecialChar === true) {
+    myArray.push(specialChar);
+  }
+
+
+
+  for (var i = 0; i < selectedLength; i ++) {
+
+    var arrayToUse = myArray[Math.floor(Math.random()*myArray.length)];
+    var randomCharIndex = Math.floor(Math.random()*arrayToUse.length);
+    
+    randPassword += arrayToUse[randomCharIndex];
+
+  }
+
+  return randPassword;    
+ }
     
    
    

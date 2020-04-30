@@ -1,6 +1,6 @@
 # HW-3-PASSWORD-GENERATOR
-## Creat A Password Generator
-#### This password generator takes a user defined options to generate a password
+## Create A Password Generator
+### This password generator takes user defined options to generate a password.  Password cannot be less than 8 characters or greater than 128 characters.
 ### User Defined Options
 * Password Length
 * UpperCase

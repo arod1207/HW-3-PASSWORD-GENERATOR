@@ -26,12 +26,12 @@ var myArray = [];
 var randPassword = '';
 
 
-//Running this function on button click
+//creating a function and running it on button click
 function generatePassword() {
 
-  
+ // using parseInt to turn the string into a number 
   var selectedLength = parseInt(prompt("Enter length of password to generate!"));
-// checking if an acutal number is inputed into the prompt box
+// checking if an actual number is inputed into the prompt box
   if (selectedLength === null || isNaN(selectedLength)) {
     alert("This isn't a number, please enter a number");
     return false;

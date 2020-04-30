@@ -39,7 +39,7 @@ function generatePassword() {
 
 // checking to see length validation 
   if (selectedLength < minCharLength || selectedLength > maxCharLength){
-    alert("Need's to be at least 8 Characters or less than or equal to 128 Characters");
+    alert("Password needs to be at least 8 Characters or less than or equal to 128 Characters");
     return false;
     
   }
